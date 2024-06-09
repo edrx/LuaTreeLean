@@ -18,9 +18,41 @@
 # (find-orgnode "Table of Contents")
 #+OPTIONS: toc:nil num:nil
 
-Hello
 
-@@html:<a href="2024-LuaTreeLean-1.png"><IMG SRC="2024-LuaTreeLean-1-small.png"></a>@@
+* Introduction
+
+# (find-TH "eev-maxima" "luatree")
+
+This is an attempt to port my [[http://anggtwu.net/eev-maxima.html#luatree][LuaTree]] thing from Maxima to Lean.
+
+Here are links to HTMLized versions of the main files, colorized by Pygments: 
+[[http://anggtwu.net/LuaTreeLean/LuaTree.lean.pyg.html][LuaTree.lean]],
+[[http://anggtwu.net/LuaTreeLean/Test1.lean.pyg.html][Test1.lean]],
+[[http://anggtwu.net/LuaTreeLean/luatree.lua.pyg.html][luatree.lua]].
+
+You can test it with:
+
+#+begin_src sh
+ (eepitch-shell)
+ (eepitch-kill)
+ (eepitch-shell)
+# (find-fline "/tmp/LuaTreeLean/")
+rm -Rv /tmp/LuaTreeLean/
+mkdir  /tmp/LuaTreeLean/
+cd     /tmp/LuaTreeLean/
+git clone https://github.com/edrx/LuaTreeLean .
+# (find-file "/tmp/LuaTreeLean/")
+# (find-file "/tmp/LuaTreeLean/Test1.lean")
+#+end_src
+
+
+/Status: pre-alpha!!!/
+
+* A screenshot
+
+I'm only using this library interactly in Emacs. It looks like this:
+
+@@html:<IMG SRC="screenshot.png">@@
 
 
 

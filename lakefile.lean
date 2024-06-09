@@ -1,17 +1,13 @@
 -- Note: this is broken!
 -- See the file Example.lean.
+-- (find-fline "~/LuaTreeLean/lakefile.lean")
 
 import Lake
-open Lake DSL
+open   Lake DSL
 
-package «LT» -- where
--- package «LuaTreeLean» where
+package «LuaTree» -- where
   -- add package configuration options here
 
 -- @[default_target]
--- lean_lib «LT» where
+lean_lib «LuaTree» -- where
   -- add library configuration options here
-
--- lean_exe «luatreelean» where
---   root := `Main
---   supportInterpreter := true
