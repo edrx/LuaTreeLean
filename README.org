@@ -1,0 +1,47 @@
+# This file:
+#   https://github.com/edrx/LuaTreeLean
+#        http://anggtwu.net/LuaTreeLean/README.org.html
+#        http://anggtwu.net/LuaTreeLean/README.org
+#               (find-angg "LuaTreeLean/README.org")
+#               (find-angg "LuaTreeLean/")
+# Author: Eduardo Ochs <eduardoochs@gmail.com>
+# 
+# Some eev-isms:
+# (defun c  () (interactive) (eek "C-c C-e h h"))
+# (defun o  () (interactive) (find-angg "LuaTreeLean/README.org"))
+# (defun v  () (interactive) (brg     "~/LuaTreeLean/README.html"))
+# (defun cv () (interactive) (c) (v))
+# 
+# Skel: (find-mygitrepo-links "LuaTreeLean")
+#       (find-efunction 'find-mygitrepo-links)
+#
+# (find-orgnode "Table of Contents")
+#+OPTIONS: toc:nil num:nil
+
+Hello
+
+#+begin_comment
+ (eepitch-shell)
+ (eepitch-kill)
+ (eepitch-shell)
+cd ~/LuaTreeLean/
+laf
+rm -v *~
+rm -v *.html
+
+# (find-fline   "~/LuaTreeLean/")
+# (magit-status "~/LuaTreeLean/")
+# (find-gitk    "~/LuaTreeLean/")
+#
+#   (s)tage all changes
+#   (c)ommit -> (c)reate
+#   (P)ush -> (p)ushremote
+#   https://github.com/edrx/LuaTreeLean
+#
+#+end_comment
+
+# Local Variables:
+# coding:               utf-8-unix
+# modes:                (org-mode fundamental-mode)
+# org-html-postamble:   nil
+# End:
