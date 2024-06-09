@@ -12,12 +12,17 @@
 # (defun v  () (interactive) (brg     "~/LuaTreeLean/README.html"))
 # (defun cv () (interactive) (c) (v))
 # 
+# (require 'ox-md)
+# (org-md-export-to-markdown)
+# (org-html-export-to-html)
+# 
 # Skel: (find-mygitrepo-links "LuaTreeLean")
 #       (find-efunction 'find-mygitrepo-links)
 #
 # (find-orgnode "Table of Contents")
 #+OPTIONS: toc:nil num:nil
-#+TITLE: LuaTreeLean: A Lean library that calls luatree.lua.
+#+OPTIONS: org-html-postamble:nil
+# #+TITLE: LuaTreeLean: A Lean library that calls luatree.lua
 
 * Introduction
 
