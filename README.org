@@ -17,7 +17,7 @@
 #
 # (find-orgnode "Table of Contents")
 #+OPTIONS: toc:nil num:nil
-
+#+TITLE: LuaTreeLean: A Lean library that calls luatree.lua.
 
 * Introduction
 
