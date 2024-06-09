@@ -59,7 +59,7 @@ this is my first program worth showing...
 I'm only using this library interactly in Emacs (in Debian). It looks
 like this:
 
-@@html:<IMG SRC="screenshot.png">@@
+@@html:<a href="http://anggtwu.net/LuaTreeLean/screenshot.png"><IMG SRC="screenshot.png"></a>@@
 
 
 
