@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2024-06-09 Sun 12:38 -->
+<!-- 2024-06-09 Sun 12:57 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>&lrm;</title>
@@ -198,9 +198,9 @@
 <div id="content" class="content">
 
 
-<div id="outline-container-orgc9fb4d9" class="outline-2">
-<h2 id="orgc9fb4d9">Introduction</h2>
-<div class="outline-text-2" id="text-orgc9fb4d9">
+<div id="outline-container-org9b72325" class="outline-2">
+<h2 id="org9b72325">Introduction</h2>
+<div class="outline-text-2" id="text-org9b72325">
 <p>
 This is an attempt to port my <a href="http://anggtwu.net/eev-maxima.html#luatree">LuaTree</a> thing from Maxima to Lean.
 </p>
@@ -213,16 +213,45 @@ Here are links to HTMLized versions of the main files, colorized by Pygments:
 </p>
 
 <p>
+You can test it with:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-sh">&#8226; (eepitch-shell)
+&#8226; (eepitch-kill)
+&#8226; (eepitch-shell)
+<span style="color: #ff7f24;"># </span><span style="color: #ff7f24;">(find-fline "/tmp/LuaTreeLean/")</span>
+rm -Rfv /tmp/LuaTreeLean/
+mkdir   /tmp/LuaTreeLean/
+<span style="color: #b0c4de;">cd</span>      /tmp/LuaTreeLean/
+git clone https://github.com/edrx/LuaTreeLean .
+<span style="color: #ff7f24;"># </span><span style="color: #ff7f24;">(find-file "/tmp/LuaTreeLean/")</span>
+<span style="color: #ff7f24;"># </span><span style="color: #ff7f24;">(find-file "/tmp/LuaTreeLean/Test1.lean")</span>
+</pre>
+</div>
+
+<p>
+The lines with bullets are explained <a href="http://anggtwu.net/eepitch.html">here</a> - you can skip them. Note
+that <a href="http://anggtwu.net/LuaTreeLean/luatree.lua.pyg.html">luatree.lua</a> needs lua5.1.
+</p>
+
+<p>
+My page about Lean is here: <a href="http://anggtwu.net/eev-lean4.html">Eev and Lean4</a>. But I'm a newcomer, and
+this is my first program worth showing&#x2026;
+</p>
+
+<p>
 <i>Status: pre-alpha!!!</i>
 </p>
 </div>
 </div>
 
-<div id="outline-container-orgd43b494" class="outline-2">
-<h2 id="orgd43b494">A screenshot</h2>
-<div class="outline-text-2" id="text-orgd43b494">
+<div id="outline-container-org61a7760" class="outline-2">
+<h2 id="org61a7760">A screenshot</h2>
+<div class="outline-text-2" id="text-org61a7760">
 <p>
-I'm only using this library interactly in Emacs. It looks like this:
+I'm only using this library interactly in Emacs (in Debian). It looks
+like this:
 </p>
 
 <p>

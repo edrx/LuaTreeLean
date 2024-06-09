@@ -22,6 +22,7 @@
 * Introduction
 
 # (find-TH "eev-maxima" "luatree")
+# (find-TH "eepitch" "luatree")
 
 This is an attempt to port my [[http://anggtwu.net/eev-maxima.html#luatree][LuaTree]] thing from Maxima to Lean.
 
@@ -33,24 +34,30 @@ Here are links to HTMLized versions of the main files, colorized by Pygments:
 You can test it with:
 
 #+begin_src sh
- (eepitch-shell)
- (eepitch-kill)
- (eepitch-shell)
+• (eepitch-shell)
+• (eepitch-kill)
+• (eepitch-shell)
 # (find-fline "/tmp/LuaTreeLean/")
-rm -Rv /tmp/LuaTreeLean/
-mkdir  /tmp/LuaTreeLean/
-cd     /tmp/LuaTreeLean/
+rm -Rfv /tmp/LuaTreeLean/
+mkdir   /tmp/LuaTreeLean/
+cd      /tmp/LuaTreeLean/
 git clone https://github.com/edrx/LuaTreeLean .
 # (find-file "/tmp/LuaTreeLean/")
 # (find-file "/tmp/LuaTreeLean/Test1.lean")
 #+end_src
 
+The lines with bullets are explained [[http://anggtwu.net/eepitch.html][here]] - you can skip them. Note
+that [[http://anggtwu.net/LuaTreeLean/luatree.lua.pyg.html][luatree.lua]] needs lua5.1.
+
+My page about Lean is here: [[http://anggtwu.net/eev-lean4.html][Eev and Lean4]]. But I'm a newcomer, and
+this is my first program worth showing...
 
 /Status: pre-alpha!!!/
 
 * A screenshot
 
-I'm only using this library interactly in Emacs. It looks like this:
+I'm only using this library interactly in Emacs (in Debian). It looks
+like this:
 
 @@html:<IMG SRC="screenshot.png">@@
 
