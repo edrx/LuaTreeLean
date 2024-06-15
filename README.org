@@ -34,6 +34,7 @@ This is an attempt to port my [[http://anggtwu.net/eev-maxima.html#luatree][LuaT
 Here are links to HTMLized versions of the main files, colorized by Pygments: 
 [[http://anggtwu.net/LuaTreeLean/LuaTree.lean.pyg.html][LuaTree.lean]],
 [[http://anggtwu.net/LuaTreeLean/Test1.lean.pyg.html][Test1.lean]],
+[[http://anggtwu.net/LuaTreeLean/Test2.lean.pyg.html][Test2.lean]],
 [[http://anggtwu.net/LuaTreeLean/luatree.lua.pyg.html][luatree.lua]].
 
 You can test it with:
