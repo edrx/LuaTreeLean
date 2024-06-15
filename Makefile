@@ -1,9 +1,8 @@
-
 # (find-angg "bin/djvuize")
 # (find-es "make" "variables")
 # See: (find-node "(make)Text Functions")
 
-STEMS    = LuaTree Test1
+STEMS    = LuaTree Test1 Test2
 LEANS    = $(STEMS:=.lean)
 PYGHTMLS = $(STEMS:=.lean.pyg.html)
 
@@ -31,9 +30,9 @@ clean:
 #T  (eepitch-shell)
 #T make -f Makefile clean
 #T make -f Makefile pyghtmls
-#T make -f Makefile luatree.lua.pyg.html
+#T scp -v {LuaTree,Test1,Test2}.lean.pyg.html $LINP/LuaTreeLean/
+#T scp -v {LuaTree,Test1,Test2}.lean.pyg.html $LINS/LuaTreeLean/
 #T laf
 #T rm -Rv .lake/
 #T lake build
 #T find .lake * | sort
-# (find-man "rm")

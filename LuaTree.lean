@@ -1,15 +1,13 @@
 -- This file:
---   http://anggtwu.net/LuaTreeLean/LT.lean.pyg.html
---   http://anggtwu.net/LuaTreeLean/LT.lean.html
---   http://anggtwu.net/LuaTreeLean/LT.lean
---          (find-angg "LuaTreeLean/LT.lean")
+--   http://anggtwu.net/LuaTreeLean/LuaTree.lean.pyg.html
+--   http://anggtwu.net/LuaTreeLean/LuaTree.lean.html
+--   http://anggtwu.net/LuaTreeLean/LuaTree.lean
+--          (find-angg "LuaTreeLean/LuaTree.lean")
 -- Author: Eduardo Ochs <eduardoochs@gmail.com>
 --    See: https://github.com/edrx/LuaTreeLean
 --
--- (defun e () (interactive) (find-angg "LuaTreeLean/LT.lean"))
---
 -- Example:
---   #eval toLT      [2, 3]      --> LT.LT.t "[]" [LT.LT.s "2", LT.LT.s "3"]
+--   #eval toLTree   [2, 3]      --> LTree.LTree.t "[]" [LTree.LTree.s "2", LTree.LTree.s "3"]
 --   #eval toLuaExpr [2, 3]      --> "{[0]=\"[]\", \"2\", \"3\"}"
 --   #eval printTree [2, 3]      --> []__.
 --                               --  |   |
@@ -39,7 +37,7 @@ def zconcat := zacs
 
 
 /- IO
--- See: (find-angg "luatree/luatree.lua")
+-- See: (find-angg "LuaTreeLean/luatree.lua")
 -/
 def mkfilepath (fname : String) : System.FilePath :=
   System.mkFilePath [fname]
@@ -61,40 +59,41 @@ def luatreeprint (luaexpr : String) : IO Unit := do
   IO.println (← luatreerun luaexpr)
 
 
-/- LT: structure and class
+/- LTree: structure and class
 -/
-inductive LT where
-  | s (s : String) : LT
-  | t (h : String) (l : List LT) : LT
+inductive LTree where
+  | s (s : String) : LTree
+  | t (h : String) (l : List LTree) : LTree
   deriving Repr
 
-partial def toLuaExpr0 : LT → String
+partial def toLuaExpr0 : LTree → String
   | .s s   => q s
   | .t h l => zconcat h (List.map toLuaExpr0 l)
 
-class ToLT (α : Type) where
-  toLT      : α → LT
-  toLuaExpr : α → String  := fun o => toLuaExpr0 (toLT o)
+class ToLTree (α : Type) where
+  toLTree   : α → LTree
+  toLuaExpr : α → String  := fun o => toLuaExpr0 (toLTree o)
   printTree : α → IO Unit := fun o => do IO.print (← luatreerun (toLuaExpr o))
 
-export ToLT (toLT toLuaExpr printTree)
+export ToLTree (toLTree toLuaExpr printTree)
 
 
-/- LT: basic instances
+/- LTree: basic instances
 -/
-instance : ToLT String     where toLT str := LT.s str
-instance : ToLT Int        where toLT n   := LT.s (toString n)
-instance : ToLT Nat        where toLT n   := LT.s (toString n)
+instance : ToLTree LTree      where toLTree o   := o
+instance : ToLTree String     where toLTree str := LTree.s str
+instance : ToLTree Int        where toLTree n   := LTree.s (toString n)
+instance : ToLTree Nat        where toLTree n   := LTree.s (toString n)
 
-instance {α} [ToLT α] : ToLT (List α)  where toLT as :=
-  (LT.t "[]"  (List.map  toLT as))
-instance {α} [ToLT α] : ToLT (Array α) where toLT as :=
-  (LT.t "#[]" (Array.map toLT as).toList)
+instance {α} [ToLTree α] : ToLTree (List α)  where toLTree as :=
+  (LTree.t "[]"  (List.map  toLTree as))
+instance {α} [ToLTree α] : ToLTree (Array α) where toLTree as :=
+  (LTree.t "#[]" (Array.map toLTree as).toList)
 
 
 /- High-level tests
 -/
-#eval toLT      [2, 3]
+#eval toLTree   [2, 3]
 #eval toLuaExpr [2, 3]
 #eval printTree [2, 3]
 

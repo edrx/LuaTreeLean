@@ -22,12 +22,12 @@ def paren : A → String
   | .minus b c => "(" ++ paren b ++ "-" ++ paren c ++ ")"
   | .pow   b c => "(" ++ paren b ++ "^" ++ paren c ++ ")"
 
-def toLT_A : A → LT
-  | .n n       => LT.s (toString n)
-  | .minus b c => LT.t "-" [toLT_A b, toLT_A c]
-  | .pow   b c => LT.t "^" [toLT_A b, toLT_A c]
+def toLTree_A : A → LTree
+  | .n n       => LTree.s (toString n)
+  | .minus b c => LTree.t "-" [toLTree_A b, toLTree_A c]
+  | .pow   b c => LTree.t "^" [toLTree_A b, toLTree_A c]
 
-instance : ToLT A where toLT := toLT_A
+instance : ToLTree A where toLTree := toLTree_A
 
 declare_syntax_cat catA
 
@@ -42,7 +42,7 @@ macro_rules | `([: $b:catA ^ $c:catA :]) => `(A.pow   ([: $b :]) ([: $c :]))
 
 #check          [: 1 - 2 - 3 - 4 ^ 5 ^ 6 :]
 #eval paren     [: 1 - 2 - 3 - 4 ^ 5 ^ 6 :]   --> "(((1-2)-3)-(4^(5^6)))"
-#eval toLT      [: 1 - 2 - 3 - 4 ^ 5 ^ 6 :]   --> LuaTree.LT.t "-" [...]
+#eval toLTree   [: 1 - 2 - 3 - 4 ^ 5 ^ 6 :]   --> LuaTree.LTree.t "-" [...]
 #eval printTree [: 1 - 2 - 3 - 4 ^ 5 ^ 6 :]   --> a 2D tree
 
 end DSL

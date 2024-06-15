@@ -1,7 +1,3 @@
--- Note: this is broken!
--- See the file Example.lean.
--- (find-fline "~/LuaTreeLean/lakefile.lean")
-
 import Lake
 open   Lake DSL
 
