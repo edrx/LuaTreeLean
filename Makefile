@@ -1,6 +1,13 @@
-# (find-angg "bin/djvuize")
-# (find-es "make" "variables")
-# See: (find-node "(make)Text Functions")
+# This file:
+#   http://anggtwu.net/LuaTreeLean/Makefile.html
+#   http://anggtwu.net/LuaTreeLean/Makefile
+#          (find-angg "LuaTreeLean/Makefile")
+#    See: https://github.com/edrx/LuaTreeLean
+# Author: Eduardo Ochs <eduardoochs@gmail.com>
+#
+# See: (find-angg "bin/djvuize")
+#      (find-es "make" "variables")
+#      (find-node "(make)Text Functions")
 
 STEMS    = LuaTree Test1 Test2
 LEANS    = $(STEMS:=.lean)
@@ -25,9 +32,9 @@ clean:
 # (setq eepitch-preprocess-regexp "^")
 # (setq eepitch-preprocess-regexp "^#T ?")
 #
-#T  (eepitch-shell)
-#T  (eepitch-kill)
-#T  (eepitch-shell)
+#T • (eepitch-shell)
+#T • (eepitch-kill)
+#T • (eepitch-shell)
 #T make -f Makefile clean
 #T make -f Makefile pyghtmls
 #T scp -v {LuaTree,Test1,Test2}.lean.pyg.html $LINP/LuaTreeLean/
