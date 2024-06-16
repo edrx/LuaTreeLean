@@ -20,12 +20,13 @@ lean_lib «LuaTree» -- where
 /-
 -- Test:
 
-• (eepitch-shell)
-• (eepitch-kill)
-• (eepitch-shell)
+ (eepitch-shell)
+ (eepitch-kill)
+ (eepitch-shell)
 make -f Makefile clean
-  lake build --verbose
 # lake build
+  lake build --verbose
+  lake env lean --run Test1.lean
 find .lake/ | sort
 
 -/

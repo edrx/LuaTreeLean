@@ -7,6 +7,7 @@ This is an attempt to port my [LuaTree](http://anggtwu.net/eev-maxima.html#luatr
 Here are links to HTMLized versions of the main files, colorized by Pygments: 
 [LuaTree.lean](http://anggtwu.net/LuaTreeLean/LuaTree.lean.pyg.html),
 [Test1.lean](http://anggtwu.net/LuaTreeLean/Test1.lean.pyg.html),
+[Test2.lean](http://anggtwu.net/LuaTreeLean/Test2.lean.pyg.html),
 [luatree.lua](http://anggtwu.net/LuaTreeLean/luatree.lua.pyg.html).
 
 You can test it with:
