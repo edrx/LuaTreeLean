@@ -23,9 +23,9 @@ def paren : A → String
   | .pow   b c => "(" ++ paren b ++ "^" ++ paren c ++ ")"
 
 def toLTree_A : A → LTree
-  | .n n       => LTree.s (toString n)
-  | .minus b c => LTree.t "-" [toLTree_A b, toLTree_A c]
-  | .pow   b c => LTree.t "^" [toLTree_A b, toLTree_A c]
+  | .n n       => .s (toString n)
+  | .minus b c => .t "-" [toLTree_A b, toLTree_A c]
+  | .pow   b c => .t "^" [toLTree_A b, toLTree_A c]
 
 instance : ToLTree A where toLTree := toLTree_A
 

@@ -66,6 +66,9 @@ inductive LTree where
   | t (h : String) (l : List LTree) : LTree
   deriving Repr
 
+instance : Inhabited LTree where
+  default := .s ""
+
 partial def toLuaExpr0 : LTree → String
   | .s s   => q s
   | .t h l => zconcat h (List.map toLuaExpr0 l)
@@ -80,16 +83,22 @@ export ToLTree (toLTree toLuaExpr printTree)
 
 /- LTree: basic instances
 -/
-instance : ToLTree LTree      where toLTree o   := o
-instance : ToLTree String     where toLTree str := LTree.s str
-instance : ToLTree Int        where toLTree n   := LTree.s (toString n)
-instance : ToLTree Nat        where toLTree n   := LTree.s (toString n)
 
-instance {α} [ToLTree α] : ToLTree (List α)  where toLTree as :=
+def toLTree_LTree  (o : LTree)    : LTree := o
+def toLTree_Int    (n : Int)      : LTree := LTree.s (toString n)
+def toLTree_Nat    (n : Nat)      : LTree := LTree.s (toString n)
+def toLTree_String (str : String) : LTree := LTree.s str
+def toLTree_List   [ToLTree α] (as : List α)  : LTree :=
   (LTree.t "[]"  (List.map  toLTree as))
-instance {α} [ToLTree α] : ToLTree (Array α) where toLTree as :=
+def toLTree_Array  [ToLTree α] (as : Array α) : LTree :=
   (LTree.t "#[]" (Array.map toLTree as).toList)
 
+instance                 : ToLTree LTree     where toLTree := toLTree_LTree
+instance                 : ToLTree Int       where toLTree := toLTree_Int
+instance                 : ToLTree Nat       where toLTree := toLTree_Nat
+instance                 : ToLTree String    where toLTree := toLTree_String
+instance {α} [ToLTree α] : ToLTree (List α)  where toLTree := toLTree_List
+instance {α} [ToLTree α] : ToLTree (Array α) where toLTree := toLTree_Array
 
 /- High-level tests
 -/
